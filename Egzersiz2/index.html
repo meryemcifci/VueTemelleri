@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Js Temelleri</title>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="">
+</head>
+
+<body>
+
+    <header>
+        <h1>Frontendde Öğrenmemiz Gerekenler</h1>
+
+    </header>
+    <section id="frontend">
+       <h2>Egzersiz 2</h2>
+       <button @click=add(10)>  10 Arttır</button>
+       <button @click=reduce(5)> 5 Azalt</button>
+       <p v-once>Başlangıç değeri:{{counter}}</p>
+       <p> Sonuç: {{counter}}</p>
+       <p> Sonuç: {{result}}</p>
+
+        Butonları bağlayıp sonucu bastırın!
+        25 değerinin altındaki değerler için "Değerin altındasınız" mesajını bastırın
+        25 değerinin üstündeki değerler için "Değerin üstündesiniz" mesajını bastırın
+
+
+
+
+
+    </section>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
