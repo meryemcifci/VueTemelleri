@@ -32,12 +32,11 @@
         </div>
     <div class="container" v-if="winner">
         <h2>Oyun Bitti</h2>
-        <h3>Bilgisayar Kazandı</h3>
-        <h3>Meryem Kazandı</h3>
-        <h3>Berabere</h3>
-        <button>Yeni Oyun</button>
+        <h3 v-if="winner==='computer'">Bilgisayar Kazandı</h3>
+        <h3 v-else-if="winner==='me'">Meryem Kazandı</h3>
+        <h3 v-else="winner==='draw'">Berabere</h3>
+        <button >Yeni Oyun</button>
     </div>
-
     <div id="controls" v-else>
         <button @click="attackToComputer()">Saldır</button>
         <button @click="specialAttack()" :disabled="possibleSpecialAttack">Süper Saldırı</button>
