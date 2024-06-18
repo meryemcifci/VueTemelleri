@@ -35,7 +35,7 @@
         <h3 v-if="winner==='computer'">Bilgisayar Kazandı</h3>
         <h3 v-else-if="winner==='me'">Meryem Kazandı</h3>
         <h3 v-else="winner==='draw'">Berabere</h3>
-        <button >Yeni Oyun</button>
+        <button @click="newGame">Yeni Oyun</button>
     </div>
     <div id="controls" v-else>
         <button @click="attackToComputer()">Saldır</button>

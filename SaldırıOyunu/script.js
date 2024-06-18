@@ -78,6 +78,13 @@ const app = Vue.createApp({
         }
         this.attackMe()
       },
+      newGame(){
+        this.myHealth=100;
+        this.computerHealth=100;
+        this.curretRaund=0;
+        this.winner=null;
+        
+      }
     },
 });
   app.mount('#frontend');
