@@ -28,7 +28,7 @@ h2{
   text-align: center;
   color:#000000;
 }
-div .none{
+div .none{ /* hata düzeltmek için template tek div içine almam gerekiyordu bunun sonucunda oluşan kutuyu css özellikleri ile yok ettim*/
   border: none;
   box-shadow: none;
   padding: 0;
