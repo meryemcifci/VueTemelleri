@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    {{name}} {{ studentIsPassed === '1' ? '(Geçti)':'(Kaldı)' }}
+    {{name}} {{ studentIsPassed  ? '(Geçti)':'(Kaldı)' }}
     <button @click="toggleIsPassed()">Geçti  Kaldı Değiştir </button>
 
 
@@ -43,12 +43,12 @@
       required:true
     },  
     isPassed:{
-      type:String,
+      type:Boolean,
       required:false,
-      default:'0',
-      validator:function(value){
-        return value=== '1' || value==='0'
-      }
+      default:false,
+      // validator:function(value){
+      //   return value=== '1' || value==='0'
+      // }
     },
   },
    data(){
@@ -62,13 +62,8 @@
       this.isVisible = !this.isVisible
     },
     toggleIsPassed(){
-      if(this.studentIsPassed==='1'){
-        this.studentIsPassed='0'
-      }
-      else{
-        this.studentIsPassed='1'
-      }
-      },
+      this.studentIsPassed = !this.studentIsPassed
+    },
    }
  }
  </script>

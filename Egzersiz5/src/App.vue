@@ -1,9 +1,7 @@
 <template>
   <div class="none">
     <h2>Öğrencilerim</h2>
-    <Student  name="Can Boz" phone="555 555 55 55" email="ccc@hotmail.com" isPassed="1"/>
-    <Student  name="Hakan Elif" phone="555 555 55 44" email="hhh@hotmail.com" isPassed="0"/>
-    <Student  name="Mustafa Elif" phone="555 555 55 33" email="mmm@hotmail.com" isPassed="1"/>
+    <Student v-for="student in students" :key="student.id" :name="student.name" :phone="student.phone" :email="student.email" :isPassed="student.isPassed"/>
   </div>
  </template>
  
@@ -17,7 +15,30 @@
    
    data(){
      return {
-      
+      students:[
+        {
+          id:1,
+          name:"Can Boz",
+          phone:"555 555 55 55",
+          email:"ccc@hotmail.com",
+          isPassed:true
+
+        },
+        {
+          id:2,
+          name:"Hakan Elif",
+          phone:"555 555 55 44",
+          email:"hhh@hotmail.com",
+          isPassed:false
+        },
+        {
+          id:3,
+          name:"Mustafa Elif",
+          phone:"555 555 55 33",
+          email:"mmm@hotmail.com",
+          isPassed:false
+        },
+      ]
      }
    }
   
