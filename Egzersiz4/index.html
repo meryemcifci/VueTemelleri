@@ -22,6 +22,7 @@
         <div class="frontendForm">
         <input type="text" v-model="skill">
         <button  @click="addSkill()">Ekle</button>
+        
         </div>
         <ul v-if="isVisible">
             <li v-for="(skill,index) in tasks" :key="index" @click="deleteSkill(index)">{{index + 1}}.{{skill}}</li>
