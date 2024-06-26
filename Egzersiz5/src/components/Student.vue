@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    {{name}} {{ studentIsPassed  ? '(Geçti)':'(Kaldı)' }}
+    {{name}} {{ isPassed  ? '(Geçti)':'(Kaldı)' }}
     <button @click="toggleIsPassed()">Geçti  Kaldı Değiştir </button>
 
 
@@ -23,13 +23,18 @@
  <script>
  export default {  
    name: 'student-information',
-  //  props:[
+   emits:["toogleStudentIsPassed"],
+  //  props:
   //  'name',
   //  'phone',
   //  'email',
   //  'isPassed',
   //  ],
   props:{
+    id:{
+      type:String,
+      required:true
+    },
     name:{
       type:String,
       required:true
@@ -54,7 +59,7 @@
    data(){
      return {
        isVisible:false,
-       studentIsPassed:this.isPassed,
+       //studentIsPassed:this.isPassed,
      }
    },
    methods:{
@@ -62,7 +67,8 @@
       this.isVisible = !this.isVisible
     },
     toggleIsPassed(){
-      this.studentIsPassed = !this.studentIsPassed
+      //this.studentIsPassed = !this.studentIsPassed
+      this.$emit('toggleStudentIsPassed', this.id) 
     },
    }
  }

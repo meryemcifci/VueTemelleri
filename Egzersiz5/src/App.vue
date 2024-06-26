@@ -1,7 +1,8 @@
 <template>
   <div class="none">
     <h2>Öğrencilerim</h2>
-    <Student v-for="student in students" :key="student.id" :name="student.name" :phone="student.phone" :email="student.email" :isPassed="student.isPassed"/>
+    <Student v-for="student in students" :key="student.id" :id="student.id" :name="student.name" :phone="student.phone" :email="student.email" :isPassed="student.isPassed"
+    @toggleStudentIsPassed="toggleStudentStatus"/>
   </div>
  </template>
  
@@ -17,7 +18,7 @@
      return {
       students:[
         {
-          id:1,
+          id:155,
           name:"Can Boz",
           phone:"555 555 55 55",
           email:"ccc@hotmail.com",
@@ -25,22 +26,30 @@
 
         },
         {
-          id:2,
+          id:255,
           name:"Hakan Elif",
           phone:"555 555 55 44",
           email:"hhh@hotmail.com",
           isPassed:false
         },
         {
-          id:3,
+          id:355,
           name:"Mustafa Elif",
           phone:"555 555 55 33",
           email:"mmm@hotmail.com",
-          isPassed:false
+          isPassed:true
         },
       ]
      }
-   }
+   },
+   methods:{
+    toggleStudentStatus(studentId){
+      console.log(studentId)
+      const myStudent = this.students.find((student)=>student.id===studentId)
+      myStudent.isPassed = !myStudent.isPassed
+    }
+   },
+   
   
 }
 </script>
