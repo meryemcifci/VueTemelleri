@@ -1,7 +1,7 @@
 <template>
     <div>
     <h2>Form Projesi</h2>
-        <form>
+        <form @submit.prevent="handleSubmit()">
             <label> Email:</label>
             <input type="email" v-model="email" required>
             <label> Şifre:</label>
@@ -57,6 +57,13 @@
         },
         deleteSkill(skill){
             this.skills.splice(this.skills.indexOf(skill),1)
+        },
+        handleSubmit(){
+            console.log("Email:",this.email)
+            console.log("Password:",this.password)
+            console.log("Gender:", this.gender)
+            console.log("Term:",this.term)
+            console.log("Skills:",this.skills)
         }
     },
 
