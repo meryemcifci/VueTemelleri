@@ -6,6 +6,9 @@
             <input type="email" v-model="email" required>
             <label> Şifre:</label>
             <input type="password"  v-model="password" required>
+            <div v-if="passwordError" >
+                {{ passwordError }}
+            </div>
             <label> Cinsiyet:</label>
             <select v-model="gender">
                 <option value="">Lütfen seçim yapınız</option>
@@ -39,7 +42,8 @@
             gender:'',
             term:false,
             skill:'',
-            skills:[]
+            skills:[],
+            passwordError:null
         }
     },
     methods:{
@@ -59,6 +63,8 @@
             this.skills.splice(this.skills.indexOf(skill),1)
         },
         handleSubmit(){
+
+            this.passwordError=this.password.length>5?'':'Şifreniz en az 6 karakter olmalı'
             console.log("Email:",this.email)
             console.log("Password:",this.password)
             console.log("Gender:", this.gender)
@@ -127,5 +133,6 @@
         font-weight: bold;
         cursor: pointer;
     }
+   
   </style>
   
