@@ -7,12 +7,18 @@
             <label> Şifre:</label>
             <input type="password"  v-model="password" required>
             <label> Cinsiyet:</label>
-            <select>
-                <option value="erkek">Erkek</option>
-                <option value="kadın">Kadın</option>
+            <select v-model="gender">
+                <option value="">Lütfen seçim yapınız</option>
+                <option value="male">Erkek</option>
+                <option value="female">Kadın</option>
             </select>
+            <label>Bildiğiniz Diller</label>
+            <input type="text" v-model="skill" @keyup.alt="addSkill($event)">
+            <div v-for="skillItem in skills" :key="skillItem">
+            <span>{{skillItem}}</span>
+        </div>
             <div class="term">
-                <input class="termInput" type="checkbox" required>
+                <input class="termInput" v-model="term" type="checkbox" required>
                 <label>Kullanım koşullarını kabul edniz</label>
             </div>
             <div class="btn">
@@ -28,10 +34,29 @@
   export default {
     data(){
         return{
-            email:'',
+            email:'meryemcifcii06@gmail.com',
             password:'',
+            gender:'',
+            term:false,
+            skill:'',
+            skills:[]
         }
-    }
+    },
+    methods:{
+        addSkill(e)
+        {
+            if(e.key === ',' && this.skill)
+            {
+                if(!this.skills.includes(this.skill)){
+                     this.skills.push(this.skill);
+                }
+               
+                  this.skill=''
+            }          
+         
+        }
+    },
+
    
   }
 
