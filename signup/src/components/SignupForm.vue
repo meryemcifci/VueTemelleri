@@ -14,7 +14,7 @@
             </select>
             <label>Bildiğiniz Diller</label>
             <input type="text" v-model="skill" @keyup.alt="addSkill($event)">
-            <div v-for="skillItem in skills" :key="skillItem">
+            <div v-for="skillItem in skills" :key="skillItem" class="skillItem">
             <span>{{skillItem}}</span>
         </div>
             <div class="term">
@@ -105,6 +105,17 @@
         font-size:18px;
         border-radius: 20px;
         
+    }
+    .skillItem{
+        background: white;
+        margin: 20px 10px;
+        display:inline-block;
+        padding:8px 10px;
+        border-radius:20px;
+        color:purple;
+        letter-spacing: 1px;
+        font-weight: bold;
+        cursor: pointer;
     }
   </style>
   
