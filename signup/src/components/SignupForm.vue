@@ -6,7 +6,7 @@
             <input type="email" v-model="email" required>
             <label> Şifre:</label>
             <input type="password"  v-model="password" required>
-            <div v-if="passwordError" >
+            <div v-if="passwordError" class="passwordError">
                 {{ passwordError }}
             </div>
             <label> Cinsiyet:</label>
@@ -133,6 +133,11 @@
         font-weight: bold;
         cursor: pointer;
     }
-   
+    .passwordError{
+        margin:10px;
+        color: red;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
   </style>
   
