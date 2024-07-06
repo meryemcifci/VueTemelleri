@@ -15,8 +15,8 @@
             <label>Bildiğiniz Diller</label>
             <input type="text" v-model="skill" @keyup.alt="addSkill($event)">
             <div v-for="skillItem in skills" :key="skillItem" class="skillItem">
-            <span>{{skillItem}}</span>
-        </div>
+             <span @click="deleteSkill(skillItem)">{{skillItem}}</span>
+            </div>
             <div class="term">
                 <input class="termInput" v-model="term" type="checkbox" required>
                 <label>Kullanım koşullarını kabul edniz</label>
@@ -54,6 +54,9 @@
                   this.skill=''
             }          
          
+        },
+        deleteSkill(skill){
+            this.skills.splice(this.skills.indexOf(skill),1)
         }
     },
 
