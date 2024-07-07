@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="Form">
     <h2>{{ username }}</h2>
     <h3>{{ point }}</h3>
  </div>
@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
 

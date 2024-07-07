@@ -36,5 +36,19 @@ export default {
 </script>
 
 <style>
+.Form{
+  text-align: center;
+  font-size: xxx-large;
+  letter-spacing: revert-layer;
+}
+.Form h2,h3{
+  color:crimson
+}
+button{
+  color:white;
+  background-color:green;
+  box-sizing: 20px;
+
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="Form">
        <form @submit.prevent="submitForm">
         <input type="text" placeholder="İsminiz: " v-model="enteredName">
         <input type="number" placeholder="Puanınız: " v-model="enteredScore">
