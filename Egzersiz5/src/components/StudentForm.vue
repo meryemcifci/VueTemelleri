@@ -1,102 +1,82 @@
 <template>
-<form>
-    <div >
+<form @submit.prevent="submitForm">
+    <div class="formControl">
         <label>Ad </label>
-        <input type="text">
+        <input type="text" v-model="enteredName">
     </div>
-    <div >
+    <div class="formControl" >
         <label>Telefon </label>
-        <input type="tel">
+        <input type="tel"  v-model="enteredPhone">
     </div>
-    <div>
+    <div class="formControl">
         <label>Email </label>
-        <input type="email">
+        <input type="email"  v-model="enteredEmail">
     </div>
-    <div>
+    <div class="formControl">
         <label>Dersi Geçti Mi? </label>
-        <input type="checkbox">
+        <input type="checkbox"  v-model="enteredIsPassed">
     </div>
+   
+    <button>Ekle</button>
+    
 </form>
 </template>
   
 <script>
    export default {  
      name: 'new-student',
+     emits:["addStudent"],
 
      data(){
         return {
-
+          enteredName: '',
+          enteredPhone: '',
+          enteredEmail: '',
+          enteredIsPassed: false,
 
         }
     },
      methods:{
-      
+      submitForm(){
+        this.$emit('addStudent',this.enteredName,this.enteredPhone,this.enteredEmail,this.enteredIsPassed)
+        this.enteredEmail='';
+        this.enteredName='';
+        this.enteredPhone='';
+        this.enteredIsPassed=false;
+      }
      }
    }
    </script>
   
    <style>
-    div {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #0055ff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-  
-    button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+   *{
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+
+   }
+   div .formControl{ /* hata düzeltmek için template tek div içine almam gerekiyordu bunun sonucunda oluşan kutuyu css özellikleri ile yok ettim*/
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    }
+    box-shadow: none;
+    padding: 0;
+    margin: 20px;
+  }
+  form{
+    box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+    max-width: 600px;
+    width: 100%;
+    margin:20px auto;
+    padding:15px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  form input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 20px;
+
+  }
+ 
   
-    button:hover {
-      background-color: #0056b3;
-    }
-  
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 10px;
-    }
-  
-    li {
-      margin-bottom: 10px;
-    }
-  
-    li p {
-      font-weight: bold;
-      margin: 0;
-      color: #fc0707;
-    }
-  
-    li::before {
-      content: "• ";
-      color: #007bff;
-      font-weight: bold;
-    }
-  
-    @media (max-width: 600px) {
-      div {
-        padding: 15px;
-      }
-  
-      button {
-        font-size: 14px;
-      }
-  
-      li p {
-        font-size: 14px;
-      }
-    }
+   
    </style>
