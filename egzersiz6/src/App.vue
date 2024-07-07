@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Student :username="student.name" :point="student.score" />
+    <StudentForm @updateData="updateStudent"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Student from './components/Student.vue'
+import StudentForm from './components/StudentForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Student,
+    StudentForm
+  },
+  data() {
+    return{
+      student:{
+        name:'Meryem ÇİFCİ',
+        score:95
+      }
+     
+    }
+  },
+  methods:{
+    updateStudent(nameStudent,scoreStudent){
+      this.student={
+        name:nameStudent,
+        score:scoreStudent,
+      }
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
